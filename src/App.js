@@ -38,9 +38,10 @@ export default function App() {
       <Logo />
 
       <ActionsCtx.Provider value={{ 
-          reset: dispatchOngoingCalculation.bind(null, acReset),
-          append: dispatchOngoingCalculation.bind(null, acAppend),
-          calculate: dispatchOngoingCalculation.bind(null, acCalculate)
+          dispatchOngoingCalculation,
+          acReset,
+          acAppend,
+          acCalculate
       }}>
         <main className="App">
           {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
