@@ -1,6 +1,10 @@
-import React from "react"
+import React, { useReducer } from "react"
 import "./App.css"
 // STEP 4 - import the button and display components
+import Numbers from './components/ButtonComponents/NumberButtons/Numbers'
+import Operators from './components/ButtonComponents/OperatorButtons/Operators'
+import Display from './components/DisplayComponents/Display'
+import Specials from './components/ButtonComponents/SpecialButtons/Specials'
 // Don't forget to import any extra css/scss files you build into the correct component
 
 // Logo has already been provided for you. Do the same for the remaining components
@@ -13,12 +17,29 @@ export default function App() {
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
+  const [ongoingCalculation, dispatchOngoingCalculation] = useReducer(calculationReducer, '0')
+  
   return (
     <div className="container">
       <Logo />
       <div className="App">
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
+        <Display content={ongoingCalculation} />
+        <Specials />
+        <Numbers />
+        <Operators />
       </div>
     </div>
   )
+}
+
+
+function calculationReducer(state, action) {
+  switch(action.type.toUpperCase()) {
+    case 'RESET':
+    case 'APPEND_CALCULATION':
+    case 'PERFORM_CALCULATION':
+    default:
+      return state
+  }
 }
