@@ -4,11 +4,11 @@ import React, { useState } from "react"
 import SpecialButton from './SpecialButton'
 
 //Import your array data to from the provided data file
-import { specials } from '../../../data'
+import { _specials } from '../../../data'
 
 export default function Specials(props) {
   // STEP 2 - add the imported data to state
-  const [specials, _] = useState(specials)
+  const [specials, _] = useState(_specials)
 
   return (
     <div>
