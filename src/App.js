@@ -7,8 +7,22 @@ import Display from './components/DisplayComponents/Display'
 import Specials from './components/ButtonComponents/SpecialButtons/Specials'
 // Don't forget to import any extra css/scss files you build into the correct component
 
+import Mathjs from 'mathjs'
+
+import { 
+  RESET,
+  APPEND_CALCULATION,
+  PERFORM_CALCULATION,
+  acReset,
+  acAppend,
+  acCalculate
+} from './actionCreators'
+
 // Logo has already been provided for you. Do the same for the remaining components
 import Logo from "./components/DisplayComponents/Logo"
+
+
+export const ActionsCtx = React.createContext(null)
 
 export default function App() {
   // STEP 5 - After you get the components displaying using the provided data file, write your state hooks here.
@@ -22,24 +36,41 @@ export default function App() {
   return (
     <div className="container">
       <Logo />
-      <div className="App">
-        {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
-        <Display content={ongoingCalculation} />
-        <Specials />
-        <Numbers />
-        <Operators />
-      </div>
+
+      <ActionsCtx.Provider value={{ 
+          reset: dispatchOngoingCalculation.bind(null, acReset),
+          append: dispatchOngoingCalculation.bind(null, acAppend),
+          calculate: dispatchOngoingCalculation.bind(null, acCalculate)
+      }}>
+        <main className="App">
+          {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
+          <Display content={ongoingCalculation} />
+          <Specials />
+          <Numbers />
+          <Operators />
+        </main>
+      </ActionsCtx.Provider>
+
     </div>
   )
 }
 
 
+// Reducer
+
 function calculationReducer(state, action) {
-  switch(action.type.toUpperCase()) {
-    case 'RESET':
-    case 'APPEND_CALCULATION':
-    case 'PERFORM_CALCULATION':
+  switch(action.type) {
+    case RESET:
+      return '0'
+
+    case APPEND_CALCULATION:
+      return state + action.payload
+
+    case PERFORM_CALCULATION:
+      return Mathjs.evaluate(state)
+
     default:
       return state
   }
 }
+
