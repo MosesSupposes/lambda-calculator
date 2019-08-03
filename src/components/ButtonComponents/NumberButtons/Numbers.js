@@ -17,7 +17,10 @@ export default function Numbers() {
        it any props needed by the child component*/}
 
        {numbers.map(function renderNumbers(number, index) {
-         return <NumberButton key={index} content={number} />
+         return <NumberButton 
+                  key={index} 
+                  char={number}
+                  value={number} />
        })}
 
     </div>

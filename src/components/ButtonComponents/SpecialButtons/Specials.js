@@ -17,7 +17,11 @@ export default function Specials(props) {
        it any props needed by the child component*/}
 
       {specials.map(function renderSpecials(special, index) {
-        return <SpecialButton key={index} content={special} />
+        return <SpecialButton 
+                  key={index} 
+                  char={special} 
+                  value={special}
+                />
       })}
     </div>
   )
