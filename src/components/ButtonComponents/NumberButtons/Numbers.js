@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 
 //import any components needed
 import NumberButton from './NumberButton'
@@ -21,5 +21,5 @@ export default function Numbers() {
        })}
 
     </div>
-  );
-};
+  )
+}

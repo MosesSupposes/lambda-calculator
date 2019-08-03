@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 
 //import any components needed
 import OperatorButton from './OperatorButton'
@@ -24,5 +24,5 @@ export default function Operators() {
                 />
       })}
     </div>
-  );
-};
+  )
+}
