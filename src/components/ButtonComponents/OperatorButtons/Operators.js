@@ -17,7 +17,11 @@ export default function Operators() {
        it any props needed by the child component*/}
 
       {operators.map(function renderOperators(operator, index) {
-        return <OperatorButton key={index} content={operator} />
+        return <OperatorButton 
+                  key={index} 
+                  char={operator.char} 
+                  value={operator.value}
+                />
       })}
     </div>
   );
