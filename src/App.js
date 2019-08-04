@@ -70,7 +70,7 @@ function calculationReducer(state, action) {
 
     case PERFORM_CALCULATION:
       console.log(state)
-      return `${Mathjs.evaluate(state)}`
+      return `${Mathjs.eval(state)}`
 
     default:
       return state
