@@ -38,9 +38,9 @@ export default function App() {
       <Logo />
 
       <ActionsCtx.Provider value={{ 
-          resetCalc: () => dispatchOngoingCalculation(acReset),
-          appendCalc: str => dispatchOngoingCalculation(acAppend(str)),
-          calculate: () => dispatchOngoingCalculation(acCalculate)
+          resetCalc: () => dispatchOngoingCalculation( acReset() ),
+          appendCalc: str => dispatchOngoingCalculation( acAppend(str) ),
+          calculate: () => dispatchOngoingCalculation( acCalculate() )
       }}>
         <main className="App">
           {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
@@ -61,12 +61,15 @@ export default function App() {
 function calculationReducer(state, action) {
   switch(action.type) {
     case RESET:
+      console.log(state)
       return '0'
 
     case APPEND_CALCULATION:
+      console.log(state)
       return state + action.payload
 
     case PERFORM_CALCULATION:
+      console.log(state)
       return `${Mathjs.evaluate(state)}`
 
     default:
