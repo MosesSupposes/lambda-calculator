@@ -8,12 +8,9 @@ export default function SpecialButton(props) {
       <>
         {/* Display a button element rendering the data being passed down from the parent container on props */}
         <button onClick={(e) => {
-          if (props.char === "C"){
-            resetCalc()
-          } 
-          else {
-            appendCalc(props.value)
-          } 
+          (props.char === "C")
+            ? resetCalc()
+            : appendCalc(props.value)
         }}>
           {props.char}
         </button>
