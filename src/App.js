@@ -61,15 +61,12 @@ export default function App() {
 function calculationReducer(state, action) {
   switch(action.type) {
     case RESET:
-      console.log(state)
       return '0'
 
     case APPEND_CALCULATION:
-      console.log(state)
       return state + action.payload
 
     case PERFORM_CALCULATION:
-      console.log(state)
       return `${Mathjs.eval(state)}`
 
     default:
