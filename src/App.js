@@ -44,7 +44,7 @@ export default function App() {
       }}>
         <main className="App">
           {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
-          <Display content={ongoingCalculation} />
+          <Display>{ongoingCalculation}</Display>
           <Specials />
           <Numbers />
           <Operators />
