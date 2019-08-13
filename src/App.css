@@ -1,0 +1,12 @@
+body {
+    background: rgb(200, 50, 50);
+}
+
+.display {
+    text-align: end;
+    background: rgb(75,75,75);
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    color: white;
+    max-width: 600px;
+}
