@@ -2,6 +2,16 @@ body {
     background: rgb(200, 50, 50);
 }
 
+.container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    min-height: 100vh;
+    max-width: 400px;
+    margin: 2rem auto 0;
+}
+
 .display {
     text-align: end;
     background: rgb(75,75,75);
@@ -9,4 +19,9 @@ body {
     border-radius: 25px;
     color: white;
     max-width: 600px;
+}
+
+.logo-container {
+    padding-left: 5rem;
+    align-self: flex-start;
 }
