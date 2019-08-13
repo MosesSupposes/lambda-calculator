@@ -5,7 +5,6 @@ import logo from "../../Img/Lambda_Logo_white.png"
 
 const styles = {
   logoContainer:  {
-    paddingLeft: "5rem",
     alignSelf: "flex-start",
   }
 }
