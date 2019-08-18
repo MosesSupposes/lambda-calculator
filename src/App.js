@@ -36,6 +36,7 @@ export default function App() {
   return (
     <div className="container">
       <Logo />
+      <Display>{ongoingCalculation}</Display>
 
       <ActionsCtx.Provider value={{ 
           resetCalc: () => dispatchOngoingCalculation( acReset() ),
@@ -44,10 +45,14 @@ export default function App() {
       }}>
         <main className="App">
           {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
-          <Display>{ongoingCalculation}</Display>
-          <Specials />
-          <Numbers />
+          
+          <div className="specials-and-numbers">
+            <Specials />
+            <Numbers />
+          </div>
+
           <Operators />
+          
         </main>
       </ActionsCtx.Provider>
 
